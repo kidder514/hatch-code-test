@@ -39,3 +39,35 @@ export const getEntity = async (id: number) => {
     let entity = globalThis.entityData.filter(entity => entity.id === id)
     return promiseWrapper(entity);
 }
+
+export const addDivision = async ({ parent, name }: { parent: DivisionNode, name: string }) => {
+    let id = idCountDivision + 1;
+    let division = {
+        id,
+        name,
+        level: parent.level + 1,
+        parentTrack: [...parent.parentTrack, parent.id],
+        childTrack: []
+    };
+    console.log('division', division);
+    globalThis.companyData.push(division);
+    const parentIndex = globalThis.companyData.findIndex(division => division.id === parent.id)
+    globalThis.companyData[parentIndex].childTrack.push(id)
+    idCountDivision++;
+    return promiseWrapper('sucessful');
+}
+
+export const addEntity = async ({ parent, name, type }: { parent: DivisionNode, name: string, type: EntityType }) => {
+    let id = idCountEntity + 1;
+    let entity = {
+        id,
+        type,
+        name,
+        level: parent.level,
+        division: parent.id
+    };
+
+    globalThis.entityData.push(entity);
+    idCountDivision++;
+    return promiseWrapper('sucessful');
+}

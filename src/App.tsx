@@ -1,10 +1,10 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import Header from './component/header';
 import Content from './component/content';
+import Entity from './component/entity';
 
 import './mock';
 import './App.scss'
-import Entity from './component/entity';
 
 const App = () => {
     return (

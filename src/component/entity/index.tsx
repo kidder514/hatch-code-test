@@ -2,9 +2,9 @@ import { useAtom } from "jotai";
 import Loader from "../loader";
 import { useGetEntityList } from "../../api/query";
 import { selectDivisionListAtom, selectLevelAtom } from "../../store";
+import { Badge } from "react-bootstrap";
 
 import './index.scss';
-import { Badge } from "react-bootstrap";
 
 const Entity = () => {
     const [level,] = useAtom(selectLevelAtom);
