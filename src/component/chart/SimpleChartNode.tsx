@@ -8,6 +8,7 @@ interface SimpleChartNodeProps {
 const SimpleChartNode = ({ data }: SimpleChartNodeProps) => {
     const renderChildren = (children: { [key: number]: DivisionNode }) => {
         if (isEmpty(children)) return;
+
         return Object
             .entries(children)
             .map(([key, value]) => {

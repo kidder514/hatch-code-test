@@ -15,6 +15,7 @@ interface AddEntityFormProps {
 const addEntityForm = ({ data, action }: AddEntityFormProps) => {
     const [name, setName] = useState('');
     const [type, setType] = useState<EntityType>('USER' as EntityType);
+
     const submit = () => {
         action({ parent: data, name, type });
     }

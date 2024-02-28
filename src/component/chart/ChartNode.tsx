@@ -41,6 +41,7 @@ const ChartNode = ({ data, selectedDivisionList, setSelectedDivision, className,
 
     const renderChildren = (children: { [key: number]: DivisionNode }) => {
         if (isEmpty(children)) return;
+
         return Object
             .entries(children)
             .map(([key, value]) => {
@@ -59,6 +60,7 @@ const ChartNode = ({ data, selectedDivisionList, setSelectedDivision, className,
 
     const selectHandler = () => {
         let listSelected;
+
         if (selectedDivisionList.includes(data.id)) {
             listSelected = selectedDivisionList.filter(id => id !== data.id);
         } else {
