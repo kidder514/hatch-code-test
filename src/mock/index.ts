@@ -41,7 +41,7 @@ globalThis.companyData = [
         name: 'Plant Manager',
         level: 1,
         parentTrack: [],
-        childTrack: [2, 3, 4, 5]
+        childTrack: [2, 3, 4, 5, 6]
     },
     {
         id: 2,

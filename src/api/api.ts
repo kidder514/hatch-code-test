@@ -1,7 +1,7 @@
-import { listToTree } from "../util";
+import { listToTree, getAllChildId } from "../util";
 
 const promiseWrapper = async (data: any): Promise<any> => {
-    return new Promise((resolve => setTimeout(() => resolve(data), 1000)))
+    return new Promise((resolve => setTimeout(() => resolve(data), 200)))
 }
 
 export const getDivisionList = async (startFromLevel: number, idList?: number[]) => {
@@ -20,10 +20,15 @@ export const getDepth = async () => {
     return promiseWrapper(globalThis.companyData.sort((a, b) => b.level - a.level)[0].level);
 }
 
-
-export const getEntityList = async (startFromLevel: number, divisionList?: number[]) => {
+export const getEntityList = async (startFromLevel: number, divisionListSelected?: number[]) => {
     let list;
     list = globalThis.companyData.filter(division => division.level >= startFromLevel);
+
+    let childIdList: number[];
+    if (divisionListSelected) {
+        childIdList = getAllChildId(globalThis.companyData, divisionListSelected);
+        list = list.filter(division => childIdList.includes(division.id));
+    }
 
     const divisionIdList = list.map(division => division.id);
     let entityList = globalThis.entityData.filter(entity => divisionIdList.includes(entity.division));

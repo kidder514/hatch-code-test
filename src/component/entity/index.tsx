@@ -8,7 +8,7 @@ import { Badge } from "react-bootstrap";
 
 const Entity = () => {
     const [level,] = useAtom(selectLevelAtom);
-    const [selectedDivisionList, setSelectedDivision] = useAtom(selectDivisionListAtom);
+    const [selectedDivisionList,] = useAtom(selectDivisionListAtom);
 
     const { isLoading, data } = useGetEntityList(level, selectedDivisionList);
 
