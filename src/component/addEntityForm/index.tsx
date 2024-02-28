@@ -39,7 +39,6 @@ const addEntityForm = ({ data, action }: AddEntityFormProps) => {
                 <option value='JOBS'>{'JOB'}</option>
             </select>
             <Button variant="primary" size='sm' onClick={submit}>Submit</Button>
-
         </section>
     )
 }

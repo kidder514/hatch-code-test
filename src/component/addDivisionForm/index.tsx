@@ -1,5 +1,3 @@
-
-
 import { UseMutateFunction, UseMutationResult } from '@tanstack/react-query';
 import { Button } from 'react-bootstrap';
 
@@ -30,7 +28,6 @@ const AddDivisionForm = ({ data, action }: AddDivisionFormProps) => {
             <label>Name</label>
             <input type='text' name='name' value={name} onChange={e => setName(e.target.value)} />
             <Button variant="primary" size='sm' onClick={submit}>Submit</Button>
-
         </section>
     )
 }

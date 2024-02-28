@@ -29,23 +29,25 @@ const Chart = () => {
     });
 
     const isListEmpty = !data || data.length <= 0;
-    return <section className={'mt-4'}>
-        <h1>Division List</h1>
-        {isLoading && <Loader />}
-        {(!isListEmpty) && data.map((division: any) => {
-            return (
-                <ChartNode
-                    selectedDivisionList={selectedDivisionList}
-                    setSelectedDivision={setSelectedDivision}
-                    className='root'
-                    key={`root-node-${division.id}`}
-                    data={division}
-                    addDivision={useAddDivision.mutate}
-                    addEntity={useAddEntity.mutate}
-                />
-            )
-        })}
-    </section>
+    return (
+        <section className={'mt-4'}>
+            <h1>Division List</h1>
+            {isLoading && <Loader />}
+            {(!isListEmpty) && data.map((division: any) => {
+                return (
+                    <ChartNode
+                        selectedDivisionList={selectedDivisionList}
+                        setSelectedDivision={setSelectedDivision}
+                        className='root'
+                        key={`root-node-${division.id}`}
+                        data={division}
+                        addDivision={useAddDivision.mutate}
+                        addEntity={useAddEntity.mutate}
+                    />
+                )
+            })}
+        </section>
+    )
 }
 
 export default Chart;
