@@ -1,0 +1,20 @@
+.division-node {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    cursor: pointer;
+
+    .parent-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid grey;
+        justify-content: space-between;
+
+        .button-wrapper {
+            display: flex;
+            gap: 1rem
+        }
+    }
+}
