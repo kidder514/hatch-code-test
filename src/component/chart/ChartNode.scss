@@ -12,9 +12,16 @@
         border: 1px solid grey;
         justify-content: space-between;
 
-        .button-wrapper {
-            display: flex;
-            gap: 1rem
+        &.selected {
+            border: 3px solid red;
+        }
+
+        .action-wrapper {
+            .button-wrapper {
+                display: flex;
+                gap: 1rem
+            }
+
         }
     }
 }
