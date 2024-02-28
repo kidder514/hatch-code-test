@@ -24,11 +24,15 @@ enum EntityType {
 interface Entity {
     id: number,
     type: EntityType,
-    name: string
+    name: string,
+    level: number,
+    division: number,
 }
 
 var companyData: Division[];
-var idCount: number; // used to mimic the id generation on backend
+var entityData: Entity[];
+var idCountDivision: number; // used to mimic the id generation on backend
+var idCountEntity: number; // used to mimic the id generation on backend
 
 globalThis.companyData = [
     {
@@ -141,4 +145,43 @@ globalThis.companyData = [
     },
 ];
 
-globalThis.idCount = 19;
+globalThis.entityData = [
+    {
+        id: 1,
+        type: EntityType.JOB,
+        name: 'A Job',
+        level: 3,
+        division: 7,
+    },
+    {
+        id: 2,
+        type: EntityType.EQUIPMENT,
+        name: 'The Equipment',
+        level: 3,
+        division: 7,
+    },
+    {
+        id: 3,
+        type: EntityType.USER,
+        name: 'The good user',
+        level: 2,
+        division: 6,
+    },
+    {
+        id: 4,
+        type: EntityType.JOB,
+        name: 'Good job',
+        level: 2,
+        division: 6,
+    },
+    {
+        id: 5,
+        type: EntityType.USER,
+        name: 'The better user',
+        level: 3,
+        division: 7,
+    },
+]
+
+globalThis.idCountDivision = 18;
+globalThis.idCountEntity = 5;

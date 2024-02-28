@@ -2,11 +2,13 @@ import { useAtom } from "jotai";
 import { useLoadDivisionList } from "../../api/query";
 import Loader from "../loader";
 import ChartNode from "./ChartNode";
-import { selectDivisionListAtom } from "../../store";
+import { selectDivisionListAtom, selectLevelAtom } from "../../store";
 
 const Chart = () => {
-    const { isLoading, data } = useLoadDivisionList();
+    const [level,] = useAtom(selectLevelAtom);
     const [selectedDivisionList, setSelectedDivision] = useAtom(selectDivisionListAtom);
+
+    const { isLoading, data } = useLoadDivisionList(level);
 
     if (isLoading) {
         return <Loader />
