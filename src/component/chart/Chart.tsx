@@ -10,12 +10,10 @@ const Chart = () => {
 
     const { isLoading, data } = useLoadDivisionList(level);
 
-    if (isLoading) {
-        return <Loader />
-    }
-
     const isListEmpty = !data || data.length <= 0;
     return <section className={'mt-4'}>
+        <h1>Division List</h1>
+        {isLoading && <Loader />}
         {(!isListEmpty) && data.map((division: any) => <ChartNode selectedDivisionList={selectedDivisionList} setSelectedDivision={setSelectedDivision} className='root' key={`root-node-${division.id}`} data={division} />)}
     </section>
 }
