@@ -51,6 +51,7 @@ const ChartNode = ({ data, selectedDivisionList, setSelectedDivision, className,
                         key={`node-${value.id}`}
                         data={value}
                         addDivision={addDivision}
+                        data-testid="node-child-id"
                         addEntity={addEntity}
                     />)
             });
@@ -79,8 +80,8 @@ const ChartNode = ({ data, selectedDivisionList, setSelectedDivision, className,
                 <div className='title'>{data.name}</div>
                 <div className='action-wrapper'>
                     <div className='button-wrapper'>
-                        <Button variant="primary" size='sm' onClick={divisionButtonHandler}>+ Division</Button>
-                        <Button variant="primary" size='sm' onClick={entityButtonHandler}>+ Entity</Button>
+                        <Button data-testid='add-division-button' variant="primary" size='sm' onClick={divisionButtonHandler}>+ Division</Button>
+                        <Button data-testid='add-entity-button' variant="primary" size='sm' onClick={entityButtonHandler}>+ Entity</Button>
                     </div>
                     <div className='form-wrapper'>
                         {isDivisionFormOpen && <AddDivisionForm data={data} action={addDivision} />}

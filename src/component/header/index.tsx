@@ -21,6 +21,7 @@ const Header = () => {
         if (data) {
             return Array.from(Array(data).keys()).map((value) =>
                 <Button
+                    data-testid='level-button'
                     className={value + 1 === level ? 'active' : ''}
                     key={`level-${value + 1}-button`}
                     variant="primary"

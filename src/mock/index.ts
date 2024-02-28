@@ -7,7 +7,6 @@ interface Division {
     level: number;
     parentTrack: number[]; // list of all ancester ids all the way to the root of the tree
     childTrack: number[]; // list of all adjacent ids all the adjacent children
-    entityList?: number[];
 }
 
 interface DivisionNode extends Division {

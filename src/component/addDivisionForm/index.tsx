@@ -23,11 +23,11 @@ const AddDivisionForm = ({ data, action }: AddDivisionFormProps) => {
     }
 
     return (
-        <section className='mt-4 add-division-form-wrapper' onClick={onClick}>
+        <section data-testid="add-division-form" className='mt-4 add-division-form-wrapper' onClick={onClick}>
             <h3>Add Division</h3>
             <label>Name</label>
-            <input type='text' name='name' value={name} onChange={e => setName(e.target.value)} />
-            <Button variant="primary" size='sm' onClick={submit}>Submit</Button>
+            <input data-testid='add-division-input' type='text' name='name' value={name} onChange={e => setName(e.target.value)} />
+            <Button data-testid="add-division-submit-button" variant="primary" size='sm' onClick={submit}>Submit</Button>
         </section>
     )
 }

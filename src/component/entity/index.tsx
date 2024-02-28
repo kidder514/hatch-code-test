@@ -29,7 +29,7 @@ const Entity = () => {
                     {entity && (
                         <div className='entity'>
                             <div>Entity type</div>
-                            <Badge>{entity.type}</Badge>
+                            <Badge data-testid='slider-badge'>{entity.type}</Badge>
                             <div>Entity Name</div>
                             <div>{entity.name}</div>
                         </div>
@@ -47,12 +47,12 @@ const Entity = () => {
 
     const isListEmpty = !data || data.length <= 0;
     return <section className='mt-4 entity-wrapper'>
-        <h1> Entity List</h1>
+        <h1>Entity List</h1>
         {isLoading && <Loader />}
         {(!isListEmpty) && data.map((entity: Entity) => {
             return (
                 <div className='entity' key={`entity-${entity.id}`} onClick={() => setEntitySelected(entity.id)}>
-                    <Badge>{entity.type}</Badge>
+                    <Badge data-testid='list-badge'>{entity.type}</Badge>
                     <div>{entity.name}</div>
                 </div>
             )

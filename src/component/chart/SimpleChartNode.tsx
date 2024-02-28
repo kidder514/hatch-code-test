@@ -14,6 +14,7 @@ const SimpleChartNode = ({ data }: SimpleChartNodeProps) => {
                 return (
                     <SimpleChartNode
                         key={`node-${value.id}`}
+                        data-testid="node-child-id"
                         data={value}
                     />)
             });

@@ -24,12 +24,13 @@ const addEntityForm = ({ data, action }: AddEntityFormProps) => {
     }
 
     return (
-        <section className='mt-4 add-entity-form-wrapper' onClick={onClick}>
+        <section data-testid="add-entity-form" className='mt-4 add-entity-form-wrapper' onClick={onClick}>
             <h3>Add Entity</h3>
-            <label>name</label>
-            <input type='text' name='name' value={name} onChange={e => setName(e.target.value)} />
+            <label>Name</label>
+            <input data-testid='add-entity-form-input' type='text' name='name' value={name} onChange={e => setName(e.target.value)} />
             <label>type</label>
             <select
+                data-testid='add-entity-form-select'
                 value={type}
                 name='type'
                 onChange={e => setType(e.target.value as EntityType)}
@@ -38,7 +39,7 @@ const addEntityForm = ({ data, action }: AddEntityFormProps) => {
                 <option value='USER'>{'USER'}</option>
                 <option value='JOBS'>{'JOB'}</option>
             </select>
-            <Button variant="primary" size='sm' onClick={submit}>Submit</Button>
+            <Button data-testid='add-entity-form-submit' variant="primary" size='sm' onClick={submit}>Submit</Button>
         </section>
     )
 }
