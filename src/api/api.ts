@@ -35,11 +35,6 @@ export const getEntityList = async (startFromLevel: number, divisionListSelected
     return promiseWrapper(entityList);
 }
 
-export const getEntity = async (id: number) => {
-    let entity = globalThis.entityData.filter(entity => entity.id === id)
-    return promiseWrapper(entity);
-}
-
 export const addDivision = async ({ parent, name }: { parent: DivisionNode, name: string }) => {
     let id = idCountDivision + 1;
     let division = {
@@ -70,4 +65,16 @@ export const addEntity = async ({ parent, name, type }: { parent: DivisionNode, 
     globalThis.entityData.push(entity);
     idCountDivision++;
     return promiseWrapper('sucessful');
+}
+
+
+export const getEntity = async (id?: number): Promise<{ entity: Entity, divisionList: DivisionNode[] }> => {
+    if (!id) return promiseWrapper({});
+
+    let entity = globalThis.entityData.find(entity => entity.id === id) as Entity;
+    let division = globalThis.companyData.find(division => division.id === entity.division);
+    let ids = [...division?.parentTrack as [], (division as DivisionNode).id]
+
+    let divisionList = await getDivisionList(1, ids);
+    return promiseWrapper({ entity, divisionList });
 }

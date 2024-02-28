@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { END_POINT } from "../constant";
-import { getDepth, getDivisionList, getEntityList } from "./api";
+import { getDepth, getDivisionList, getEntity, getEntityList } from "./api";
 
 export const useLoadDivisionList = (startFromLevel = 1, idList?: number[]) => {
     return useQuery<Division[]>({
@@ -20,5 +20,14 @@ export const useGetDepth = () => {
     return useQuery<number>({
         queryKey: [END_POINT.GET_DIVISION_DEPTH],
         queryFn: () => getDepth()
+    });
+};
+
+
+export const useGetEntity = (id?: number) => {
+    return useQuery<{ entity: Entity, divisionList: DivisionNode[] }>({
+        queryKey: [END_POINT.GET_ENTITY, id],
+        queryFn: () => getEntity(id),
+        enabled: id !== undefined
     });
 };

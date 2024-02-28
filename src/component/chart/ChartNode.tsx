@@ -5,7 +5,7 @@ import './ChartNode.scss'
 import { useState } from "react";
 import AddDivisionForm from "../addDivisionForm";
 import AddEntityForm from "../addEntityForm";
-import { UseMutateFunction, UseMutationResult } from "@tanstack/react-query";
+import { UseMutateFunction } from "@tanstack/react-query";
 
 interface ChartNodeProps {
     data: DivisionNode;
